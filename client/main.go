@@ -19,8 +19,11 @@ func main() {
 	}
 	defer conn.Close()
 	client := pb.NewGreenServiceClient(conn)
-	// names := &pb.NameList{
-	// 	Names: []string{"John", "Doe", "Bob"},
-	// }
+	names := &pb.NameList{
+		Names: []string{"John", "Doe", "Bob"},
+	}
+	// RPC request response
 	callSayHello(client)
+	// RPC server stream
+	callSayHelloServerStream(client, names)
 }
