@@ -13,6 +13,7 @@ func callSayHelloServerStream(client pb.GreenServiceClient, names *pb.NameList) 
 	if err != nil {
 		log.Fatalf("failed to call SayHelloServerStreaming: %v", err)
 	}
+	log.Println("******** Started server streaming ********")
 	for {
 		resp, err := stream.Recv()
 		if err == io.EOF {
